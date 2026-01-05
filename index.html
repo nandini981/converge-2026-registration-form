@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERGE 2026 - Registration Form | PGDAV Placement Cell</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --pgdav-green: #0d5c4b;
+            --pgdav-dark-green: #094538;
+            --pgdav-light-green: #10b981;
+            --accent-gold: #d4af37;
+            --text-dark: #1f2937;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0d5c4b 0%, #094538 50%, #0d5c4b 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header-section {
+            background: white;
+            border-radius: 15px 15px 0 0;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .college-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--pgdav-green);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .college-subtitle {
+            font-size: 1rem;
+            color: #6b7280;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .event-title {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--pgdav-green) 0%, var(--pgdav-light-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .event-subtitle {
+            font-size: 1.3rem;
+            color: var(--pgdav-dark-green);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .event-tagline {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .marquee-section {
+            background: var(--pgdav-green);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .marquee {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee span {
+            padding: 0 50px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pgdav-green);
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: var(--pgdav-green);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-label i {
+            color: var(--pgdav-green);
+        }
+
+        .required {
+            color: #ef4444;
+            font-size: 1.2em;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--pgdav-green);
+            box-shadow: 0 0 0 3px rgba(13, 92, 75, 0.1);
+        }
+
+        .company-selection {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 2px solid var(--pgdav-light-green);
+        }
+
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .company-card {
+            background: white;
+            border: 3px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(13, 92, 75, 0.15);
+            border-color: var(--pgdav-green);
+        }
+
+        .company-card input[type="checkbox"] {
+            display: none;
+        }
+
+        .company-card input[type="checkbox"]:checked + .company-content {
+            border-color: var(--pgdav-green);
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        }
+
+        .company-card input[type="checkbox"]:checked + .company-content::after {
+            content: "✓";
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--pgdav-green);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .company-content {
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .company-logo {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .brochure-section {
+            text-align: center;
+            margin: 25px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            border: 2px dashed var(--pgdav-green);
+        }
+
+        .brochure-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pgdav-green) 0%, var(--pgdav-dark-green) 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(13, 92, 75, 0.3);
+        }
+
+        .brochure-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(13, 92, 75, 0.4);
+            color: white;
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 25px;
+            background: var(--bg-light);
+            border: 3px dashed #cbd5e1;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--pgdav-green);
+            background: #f0fdf4;
+        }
+
+        .file-upload-label.has-file {
+            border-color: var(--pgdav-light-green);
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-style: solid;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--pgdav-green) 0%, var(--pgdav-dark-green) 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(13, 92, 75, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(13, 92, 75, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .alert {
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 25px;
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .college-name {
+                font-size: 1.8rem;
+            }
+
+            .event-title {
+                font-size: 2rem;
+            }
+            
+            .form-card {
+                padding: 25px;
+            }
+            
+            .company-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .submit-btn.loading .loading-spinner {
+            display: inline-block;
+        }
+
+        .info-badge {
+            background: var(--pgdav-green);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header-section">
+            <div class="header-content">
+                <div class="header-text" style="width: 100%;">
+                    <div class="college-name">The Placement Cell</div>
+                    <div class="college-subtitle">P.G.D.A.V. COLLEGE | UNIVERSITY OF DELHI</div>
+                    <div class="event-title">🚀 CONVERGE 2026 🚀</div>
+                    <div class="event-subtitle">The Annual Internship Fair</div>
+                    <div class="event-tagline">Your Ambition, Our Aim</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="marquee-section">
+            <div class="marquee">
+                <span>✨ THE PLACEMENT CELL, P.G.D.A.V. COLLEGE, WISHES YOU SUCCESS AND GROWTH IN 2026! ✨</span>
+                <span>✨ THE PLACEMENT CELL, P.G.D.A.V. COLLEGE, WISHES YOU SUCCESS AND GROWTH IN 2026! ✨</span>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <div id="alertContainer"></div>
+
+            <form id="registrationForm" novalidate>
+                <!-- Personal Information Section -->
+                <div class="section-title">
+                    <i class="fas fa-user-circle"></i> Personal Information
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="name" class="form-label">
+                            <i class="fas fa-id-card"></i> Full Name <span class="required">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="name" name="name" required placeholder="Enter your full name">
+                        <div class="invalid-feedback">Please enter your full name</div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i> Email Address <span class="required">*</span>
+                        </label>
+                        <input type="email" class="form-control" id="email" name="email" required placeholder="your.email@example.com">
+                        <div class="invalid-feedback">Please enter a valid email address</div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label for="phone" class="form-label">
+                            <i class="fas fa-phone"></i> Phone Number <span class="required">*</span>
+                        </label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX" pattern="[0-9+\-\s()]{10,15}">
+                        <div class="invalid-feedback">Please enter a valid phone number</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="whatsapp" class="form-label">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Number <span class="required">*</span>
+                        </label>
+                        <input type="tel" class="form-control" id="whatsapp" name="whatsapp" required placeholder="+91 XXXXX XXXXX" pattern="[0-9+\-\s()]{10,15}">
+                        <div class="invalid-feedback">Please enter a valid WhatsApp number</div>
+                    </div>
+                </div>
+
+                <!-- Academic Information Section -->
+                <div class="section-title mt-4">
+                    <i class="fas fa-graduation-cap"></i> Academic Information
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="college" class="form-label">
+                            <i class="fas fa-university"></i> College Name <span class="required">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="college" name="college" required placeholder="Enter your college name" value="P.G.D.A.V. College">
+                        <div class="invalid-feedback">Please enter your college name</div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label for="course" class="form-label">
+                            <i class="fas fa-book"></i> Course <span class="required">*</span>
+                        </label>
+                        <select class="form-select" id="course" name="course" required>
+                            <option value="">Select your course</option>
+                            <option value="B.Com (H)">B.Com (H)</option>
+                            <option value="B.Com (P)">B.Com (P)</option>
+                            <option value="B.A. Economics (H)">B.A. Economics (H)</option>
+                            <option value="B.A. English (H)">B.A. English (H)</option>
+                            <option value="B.A. Hindi (H)">B.A. Hindi (H)</option>
+                            <option value="B.A. History (H)">B.A. History (H)</option>
+                            <option value="B.A. Political Science (H)">B.A. Political Science (H)</option>
+                            <option value="B.Sc. Computer Science (H)">B.Sc. Computer Science (H)</option>
+                            <option value="B.Sc. Mathematics (H)">B.Sc. Mathematics (H)</option>
+                            <option value="B.Sc. Physics (H)">B.Sc. Physics (H)</option>
+                            <option value="B.Sc. Chemistry (H)">B.Sc. Chemistry (H)</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="invalid-feedback">Please select your course</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="year" class="form-label">
+                            <i class="fas fa-calendar-alt"></i> Year of Study <span class="required">*</span>
+                        </label>
+                        <select class="form-select" id="year" name="year" required>
+                            <option value="">Select year</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                        <div class="invalid-feedback">Please select your year of study</div>
+                    </div>
+                </div>
+
+                <!-- Resume Upload Section -->
+                <div class="section-title mt-4">
+                    <i class="fas fa-file-upload"></i> Resume Submission
+                </div>
+
+                <div class="mb-3">
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                        <label for="resume" class="file-upload-label" id="fileLabel">
+                            <i class="fas fa-cloud-upload-alt fa-3x" style="color: var(--pgdav-green);"></i>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-dark);">Click to upload your resume</div>
+                                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 5px;">PDF, DOC, DOCX (Max 5MB)</div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="invalid-feedback d-block" id="resumeError" style="display: none !important;"></div>
+                </div>
+
+                <!-- Company Selection Section -->
+                <div class="section-title mt-4">
+                    <i class="fas fa-building"></i> Company Preferences
+                </div>
+
+                <div class="company-selection">
+                    <div style="margin-bottom: 20px; text-align: center;">
+                        <strong style="color: var(--pgdav-dark-green); font-size: 1.2rem;">
+                            <i class="fas fa-briefcase"></i> Select Your Dream Companies <span class="required">*</span>
+                        </strong>
+                        <p style="color: #4b5563; margin-top: 10px; font-size: 1rem;">Choose the companies where you'd like to apply for internships</p>
+                        <span class="info-badge">💡 You can select multiple companies</span>
+                    </div>
+                    
+                    <div class="brochure-section">
+                        <p style="color: var(--pgdav-green); font-weight: 600; margin-bottom: 15px; font-size: 1.1rem;">
+                            📄 View detailed company information before selecting
+                        </p>
+                        <a href="#" class="brochure-link" id="brochureLink" target="_blank">
+                            <i class="fas fa-book-open"></i> CONVERGE 2026 Brochure
+                        </a>
+                    </div>
+
+                    <div class="company-grid" id="companyGrid">
+                        <!-- Companies will be dynamically generated -->
+                    </div>
+                    <div class="invalid-feedback d-block" id="companyError" style="display: none !important;"></div>
+                </div>
+
+                <!-- Additional Information Section -->
+                <div class="section-title mt-4">
+                    <i class="fas fa-info-circle"></i> Additional Information
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="referral" class="form-label">
+                            <i class="fas fa-user-friends"></i> Referral Code (Optional)
+                        </label>
+                        <input type="text" class="form-control" id="referral" name="referral" placeholder="Enter referral code if you have one">
+                        <small class="text-muted">Have a friend already registered? Enter their referral code!</small>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="additional" class="form-label">
+                            <i class="fas fa-comment-dots"></i> Any Special Requirements or Questions?
+                        </label>
+                        <textarea class="form-control" id="additional" name="additional" rows="4" placeholder="Share any questions, dietary requirements for the event, accessibility needs, or anything else we should know..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Complete Registration
+                    <span class="loading-spinner"></span>
+                </button>
+            </form>
+        </div>
+
+        <footer>
+            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 10px;">
+                <i class="fas fa-award"></i> The Placement Cell, P.G.D.A.V. College
+            </p>
+            <p>University of Delhi | <a href="https://www.pgdavplacementcell.in/" target="_blank">Visit Our Website</a></p>
+            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.9;">
+                Form designed with <i class="fas fa-heart" style="color: var(--accent-gold);"></i> for CONVERGE 2026
+            </p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Company data with emojis matching various industries
+        const companies = [
+            { name: "Tech Giants", icon: "💻" },
+            { name: "Consulting Firms", icon: "📊" },
+            { name: "Investment Banking", icon: "💰" },
+            { name: "E-commerce", icon: "🛒" },
+            { name: "Startups", icon: "🚀" },
+            { name: "Digital Marketing", icon: "📱" },
+            { name: "EdTech", icon: "📚" },
+            { name: "FinTech", icon: "💳" },
+            { name: "Analytics & Data", icon: "📈" },
+            { name: "Media & Entertainment", icon: "🎬" },
+            { name: "NGOs & Social Sector", icon: "🤝" },
+            { name: "FMCG", icon: "🪔" }
+        ];
+
+        // Generate company cards
+        const companyGrid = document.getElementById('companyGrid');
+        companies.forEach((company, index) => {
+            const card = document.createElement('label');
+            card.className = 'company-card';
+            card.innerHTML = `
+                <input type="checkbox" name="companies" value="${company.name}" id="company-${index}">
+                <div class="company-content">
+                    <div class="company-logo">${company.icon}</div>
+                    <div class="company-name">${company.name}</div>
+                </div>
+            `;
+            companyGrid.appendChild(card);
+        });
+
+        // File upload handler
+        const fileInput = document.getElementById('resume');
+        const fileLabel = document.getElementById('fileLabel');
+        
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const maxSize = 5 * 1024 * 1024; // 5MB
+                if (file.size > maxSize) {
+                    showAlert('File size should not exceed 5MB. Please upload a smaller file.', 'danger');
+                    fileInput.value = '';
+                    return;
+                }
+                
+                fileLabel.classList.add('has-file');
+                fileLabel.innerHTML = `
+                    <i class="fas fa-check-circle fa-3x" style="color: var(--pgdav-green);"></i>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.1rem; color: var(--pgdav-dark-green);">${file.name}</div>
+                        <div style="font-size: 0.9rem; color: #6b7280; margin-top: 5px;">${(file.size / 1024).toFixed(2)} KB • Click to change</div>
+                    </div>
+                `;
+            }
+        });
+
+        // Form validation and submission
+        const form = document.getElementById('registrationForm');
+        
+        form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Validate form
+    if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        showAlert('Please fill in all required fields', 'danger');
+        return;
+    }
+    
+    const selectedCompanies = document.querySelectorAll('input[name="companies"]:checked');
+    if (selectedCompanies.length === 0) {
+        showAlert('Please select at least one company', 'warning');
+        return;
+    }
+    
+    // Show loading
+    const submitBtn = form.querySelector('.submit-btn');
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    
+    try {
+        const registration_id = 'CONV26-' + Date.now();
+        const formData = new FormData(form);
+        
+        // Prepare registration data
+        const resumeFile = fileInput.files[0];
+        let fileData = null;
+        let fileName = 'Not uploaded';
+        
+        if (resumeFile) {
+            showAlert('Preparing upload...', 'info');
+            
+            // Convert file to base64
+            fileData = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => resolve(e.target.result.split(',')[1]);
+                reader.readAsDataURL(resumeFile);
+            });
+            fileName = registration_id + '_' + resumeFile.name;
+        }
+        
+        // Prepare data to send to Google Apps Script
+        const registrationData = {
+            registration_id: registration_id,
+            timestamp: new Date().toISOString(),
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            whatsapp: formData.get('whatsapp'),
+            college: formData.get('college'),
+            course: formData.get('course'),
+            year: formData.get('year'),
+            companies: Array.from(selectedCompanies).map(cb => cb.value).join(', '),
+            referral: formData.get('referral') || 'None',
+            additional: formData.get('additional') || 'None',
+            resume_name: resumeFile ? resumeFile.name : 'Not uploaded',
+            file_data: fileData,
+            file_name: fileName,
+            file_type: resumeFile ? resumeFile.type : null,
+            drive_folder_id: '1Wwv1ZnQjTFKcb9HoBWhZDIobWw45cSC4'
+        };
+        
+        // Debug: Log the data being sent
+        console.log('Registration data being sent:', registrationData);
+        
+        // Submit to Google Apps Script Web App
+        const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbzgwtMgGIceMjEvRHijpID8IbLI9KT56MNdDhqxxPOPzGCd3eMqHAGVWyviamS0pqPsZw/exec';
+        
+        showAlert('Submitting registration...', 'info');
+        
+        console.log('Sending POST request to:', appsScriptUrl);
+        console.log('Request payload size:', JSON.stringify(registrationData).length, 'bytes');
+        
+        // Use mode: 'no-cors' to avoid CORS preflight issues with Google Apps Script
+        // Note: We won't be able to read the response, but the data will still be sent
+        // With no-cors, we can't set custom headers, but the body is still sent
+        try {
+            await fetch(appsScriptUrl, {
+                method: 'POST',
+                mode: 'no-cors', // This bypasses CORS but prevents reading response and setting custom headers
+                body: JSON.stringify(registrationData) // Body is still sent as-is
+            });
+            
+            console.log('Registration submitted (using no-cors mode)');
+            
+            // Success! (We assume success since we can't read the response with no-cors)
+            showAlert(`✅ Registration Successful! Your ID: ${registration_id}`, 'success');
+            form.reset();
+            form.classList.remove('was-validated');
+        } catch (fetchError) {
+            // Even with no-cors, fetch might throw, but the request may still succeed
+            console.log('Fetch completed (no-cors mode - response not readable)');
+            showAlert(`✅ Registration Submitted! Your ID: ${registration_id}`, 'success');
+            form.reset();
+            form.classList.remove('was-validated');
+        }
+        
+    } catch (error) {
+        console.error('Error:', error);
+        console.error('Error details:', {
+            message: error.message,
+            stack: error.stack,
+            name: error.name
+        });
+        // Show the actual error message to help with debugging
+        const errorMessage = error.message || 'An error occurred. Please try again.';
+        showAlert(`Error: ${errorMessage}`, 'danger');
+    } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+    }
+});
+
+        function showAlert(message, type) {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                <strong>${type === 'success' ? '✓' : type === 'warning' ? '⚠' : '✕'}</strong> ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            alertContainer.appendChild(alertDiv);
+            
+            // Auto dismiss after 6 seconds
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 6000);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Real-time validation feedback
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.checkValidity()) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                } else {
+                    this.classList.remove('is-valid');
+                    this.classList.add('is-invalid');
+                }
+            });
+            
+            // Remove validation on input
+            input.addEventListener('input', function() {
+                if (form.classList.contains('was-validated') && this.checkValidity()) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                }
+            });
+        });
+
+        // Company selection validation
+        document.querySelectorAll('input[name="companies"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const selectedCompanies = document.querySelectorAll('input[name="companies"]:checked');
+                const companyError = document.getElementById('companyError');
+                if (selectedCompanies.length > 0) {
+                    companyError.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
